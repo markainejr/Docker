@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: password1
+      MYSQL_DATABASE: student_db
+      MYSQL_USER: Mark Aine
+      MYSQL_PASSWORD: Theboy@cr7
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
